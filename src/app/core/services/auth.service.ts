@@ -1,4 +1,4 @@
-import { EMPTY, map, of } from 'rxjs';
+import { EMPTY, Observable, map, of, switchMap } from 'rxjs';
 import { Injectable, inject } from '@angular/core';
 import { HttpService } from './http.service';
 import { UserLogin } from '../models';
@@ -16,15 +16,24 @@ export class AuthService {
     return sessionStorage.getItem('userName');
   }
 
-  register(username: string, password: string) {
-    return this.httpService.post(this.url, { username, password }).pipe(
-      map((p) => {
-        sessionStorage.setItem('userName', username);
-        return { username, password };
+  register(username: string, password: string): Observable<UserLogin | null> {
+    return this.httpService.get<UserLogin[]>(this.url).pipe(
+      map((users) => !users.find((user) => user.username === username)),
+      switchMap((p) => {
+        if (p) {
+          return this.httpService.post(this.url, { username, password }).pipe(
+            map((p) => {
+              sessionStorage.setItem('userName', username);
+              return { username, password };
+            })
+          );
+        } else {
+          return of(null);
+        }
       })
     );
   }
-  login(username: string, password: string) {
+  login(username: string, password: string): Observable<UserLogin | null> {
     return this.httpService.get<UserLogin[]>(this.url).pipe(
       map((users) => {
         if (
@@ -42,8 +51,17 @@ export class AuthService {
     );
   }
 
-  logout() {
+  logout(): Observable<boolean> {
     sessionStorage.clear();
     return of(true);
+  }
+  userExist(
+    users: UserLogin[],
+    username: string,
+    password: string
+  ): UserLogin | undefined {
+    return users.find(
+      (user) => user.password === password && user.username === username
+    );
   }
 }

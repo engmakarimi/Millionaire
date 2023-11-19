@@ -16,11 +16,20 @@
 
   <div class="step__content__answer">
     <div class="answer-correct" [ngClass]="{ active: answer === 0 }">
-      <p>You Answered Correctly</p>
+      <h2>Well done!! You answered correctly</h2>
       <img src="/assets/images/right.jpeg" alt="right-img" />
     </div>
     <div class="answer-wrong" [ngClass]="{ active: answer > 0 }">
-      <img src="/assets/images/wrong.png" alt="wrong-img" />
+      <h2>sorry!! You answered wrong</h2>
+      <div class="answer__list">
+        <span>
+          <h4>The correct answers are:</h4>
+          <ng-container *ngFor="let item of question.options">
+            <p *ngIf="item.value"><span>&#10004;</span>{{ item.text }}</p></ng-container
+          >
+        </span>
+         <img src="/assets/images/wrong.png" alt="wrong-img" /> 
+      </div>
     </div>
   </div>
 </div>
@@ -53,7 +62,12 @@
     >
       Next
     </button>
-    <button mat-stroked-button type="button" (click)="goToFinal()"  *ngIf="formIndex === 4">
+    <button
+      mat-stroked-button
+      type="button"
+      (click)="goToFinal()"
+      *ngIf="formIndex === 4"
+    >
       show final score
     </button>
   </div>

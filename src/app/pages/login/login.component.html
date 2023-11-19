@@ -2,10 +2,13 @@
   <h1 class="login__title">Login</h1>
   <mat-form-field class="login__form__input">
     <mat-label>user name</mat-label>
-    <input matInput formControlName="userName" />
-    <mat-error *ngIf="form.controls['userName'].invalid"
-      >'field is required'</mat-error
-    >
+    <input matInput formControlName="userName" type="email"/>
+    <mat-error *ngIf="form.controls['userName'].getError('required')"
+    >field is required</mat-error
+  >
+  <mat-error *ngIf="form.controls['userName'].getError('email')"
+    >format is wrong</mat-error
+  >
   </mat-form-field>
   <mat-form-field class="login__form__input">
     <mat-label>password</mat-label>

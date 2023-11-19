@@ -1,14 +1,14 @@
 {
   "users": [
     {
-      "username": "Mari",
-      "password": "1234",
-      "id": 2
+      "username": "Mari@gmail.com",
+      "password": "123",
+      "id": 4
     },
     {
-      "username": "ddd",
-      "password": "ddd",
-      "id": 3
+      "username": "Mari@gmail.com",
+      "password": "147",
+      "id": 5
     }
   ],
   "questions": [
@@ -127,17 +127,17 @@
         },
         {
           "text": "option2",
-          "isAnswer": true,
+          "value": true,
           "score": 6
         },
         {
           "text": "option3",
-          "isAnswer": true,
+          "value": true,
           "score": 6
         },
         {
           "text": "option4",
-          "isAnswer": true,
+          "value": true,
           "score": 5
         }
       ]

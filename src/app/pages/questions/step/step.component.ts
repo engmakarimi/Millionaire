@@ -34,27 +34,28 @@ export class StepComponent {
   formName!: string;
   formArray!: FormArray;
   question!: any;
-  answer: number=-1;
+  answer: number = -1;
   formIndex!: number;
   public questionLocalService = inject(QuestionLocalService);
   @Input() set id(value: number) {
     this.formIndex = value;
     this.formName = this.questionLocalService.formControlNames[value];
-    this.formArray = (
-      this.questionLocalService.formGroup.controls[this.formName] as FormArray
-    );
+    this.formArray = this.questionLocalService.formGroup.controls[
+      this.formName
+    ] as FormArray;
     this.question = this.questionLocalService.Questions[value];
   }
 
   submitForm() {
-    if(this.formArray.dirty){
+    if (this.formArray.dirty) {
       this.answer = this.questionLocalService.submit(
         this.formIndex,
         this.formArray.value
       );
+      this.formArray.disable();
     }
   }
-  goToFinal(){
-    this.questionLocalService.showFinalSection=true;
+  goToFinal() {
+    this.questionLocalService.showFinalSection = true;
   }
 }

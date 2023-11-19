@@ -39,7 +39,10 @@ export class RegisterComponent {
   ngOnInit() {
     this.form = new FormGroup(
       {
-        userName: new FormControl<string>('', [Validators.required]),
+        userName: new FormControl<string>('', [
+          Validators.required,
+          Validators.email,
+        ]),
         password: new FormControl<string>('', [Validators.required]),
         confirmPassword: new FormControl<string>('', [Validators.required]),
       },
@@ -52,12 +55,12 @@ export class RegisterComponent {
     if (value && this.form.valid) {
       this.authService
         .register(value['userName'], value['password'])
-        .subscribe((p) => {
+        .subscribe((p: any) => {
           if (p) {
             this.form.reset();
             this.router.navigate(['/']);
           } else {
-            this.snackBar.open('wrong information');
+            this.snackBar.open('username is already exist');
           }
         });
     }

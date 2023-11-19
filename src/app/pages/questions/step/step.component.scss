@@ -1,49 +1,93 @@
-:host{
+:host {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    .step{
-        &__content{
+
+    .step {
+        &__content {
             width: 100%;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             align-items: flex-start;
             padding: 15px 20px;
-            &__question{
+
+            &__question {
                 flex: 1;
                 display: block;
             }
-            &__answer{
+
+            &__answer {
                 flex: 1;
                 position: relative;
             }
         }
     }
-    .answer-correct{
+
+    .answer-correct {
+        width: 100%;
         opacity: 0;
         position: absolute;
         top: 0;
-        &.active{
-            opacity: 1;
-            transition: opacity 0.5s ease-in-out;
+        text-align: center;
+        width: 100%;
+
+        h2 {
+            font-weight: 700;
+            color: rgb(0, 128, 0);
         }
-    }
-    .answer-wrong{
-        opacity: 0;
-        position: absolute;
-        top: 0;
-        img{
+
+        img {
             width: 40%;
             aspect-ratio: 1;
             object-fit: cover;
             object-position: center;
         }
-        &.active{
+
+        &.active {
             opacity: 1;
             transition: opacity 0.5s ease-in-out;
         }
+    }
+
+    .answer-wrong {
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        text-align: center;
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h2 {
+            font-weight: 700;
+            color: rgb(128, 0, 28);
+        }
+
+        img {
+            width: 40%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        &.active {
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+    }
+
+    .answer__list {
+        flex-grow: 2;
+        font-weight: 500;
+        color: rgb(0, 128, 0);
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
     }
 }
