@@ -15,11 +15,11 @@
   </div>
 
   <div class="step__content__answer">
-    <div class="answer-correct" [ngClass]="{ active: answer === 0 }">
+    <div class="answer-correct" [ngClass]="{ 'active': answer === 0 }">
       <h2>Well done!! You answered correctly</h2>
       <img src="/assets/images/right.jpeg" alt="right-img" />
     </div>
-    <div class="answer-wrong" [ngClass]="{ active: answer > 0 }">
+    <div class="answer-wrong" [ngClass]="{ 'active': answer > 0 }">
       <h2>sorry!! You answered wrong</h2>
       <div class="answer__list">
         <span>
@@ -33,24 +33,25 @@
     </div>
   </div>
 </div>
-
 <ng-container *ngIf="answer < 0; else navigation">
   <button
     mat-raised-button
     color="primary"
     (click)="submitForm()"
     type="button"
+    class="button__navigation"
   >
     submit
   </button>
 </ng-container>
 <ng-template #navigation>
-  <div class="step__navigation">
+  <div >
     <button
       mat-stroked-button
       matStepperPrevious
       type="button"
       *ngIf="formIndex > 0"
+      class="button__navigation"
     >
       Back
     </button>
@@ -59,6 +60,7 @@
       matStepperNext
       type="button"
       *ngIf="formIndex < 4"
+      class="button__navigation"
     >
       Next
     </button>
@@ -67,6 +69,7 @@
       type="button"
       (click)="goToFinal()"
       *ngIf="formIndex === 4"
+      class="button__navigation"
     >
       show final score
     </button>

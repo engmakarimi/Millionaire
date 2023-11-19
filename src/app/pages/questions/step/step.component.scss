@@ -1,3 +1,5 @@
+@import "src/assets/scss/mixins";
+
 :host {
     width: 100%;
     display: flex;
@@ -25,14 +27,11 @@
             }
         }
     }
-
+    .button__navigation{
+        margin: 20px 10px;
+    }
     .answer-correct {
-        width: 100%;
-        opacity: 0;
-        position: absolute;
-        top: 0;
-        text-align: center;
-        width: 100%;
+        @include answerBox;
 
         h2 {
             font-weight: 700;
@@ -42,8 +41,7 @@
         img {
             width: 40%;
             aspect-ratio: 1;
-            object-fit: cover;
-            object-position: center;
+            @include imageFix;
         }
 
         &.active {
@@ -53,11 +51,7 @@
     }
 
     .answer-wrong {
-        opacity: 0;
-        position: absolute;
-        top: 0;
-        text-align: center;
-        width: 100%;
+        @include answerBox;
 
         display: flex;
         flex-direction: column;
@@ -71,8 +65,7 @@
         img {
             width: 40%;
             aspect-ratio: 1;
-            object-fit: cover;
-            object-position: center;
+            @include imageFix;
         }
 
         &.active {
@@ -83,11 +76,11 @@
     }
 
     .answer__list {
+        display: flex;
+        justify-content: space-between;
         flex-grow: 2;
         font-weight: 500;
         color: rgb(0, 128, 0);
         text-align: left;
-        display: flex;
-        justify-content: space-between;
     }
 }

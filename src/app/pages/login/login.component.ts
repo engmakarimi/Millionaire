@@ -38,11 +38,11 @@ export class LoginComponent {
   snackBar = inject(MatSnackBar);
   ngOnInit() {
     this.form = new FormGroup({
-      userName: new FormControl<string>('Mari', [
+      userName: new FormControl<string>('', [
         Validators.required,
         Validators.email,
       ]),
-      password: new FormControl<string>('1234', [Validators.required]),
+      password: new FormControl<string>('', [Validators.required]),
     });
   }
 
