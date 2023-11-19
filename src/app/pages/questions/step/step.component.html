@@ -1,0 +1,60 @@
+<ng-template matStepLabel>Fill out your name</ng-template>
+<div class="step__content">
+  <div class="step__content__question">
+    <p>{{ question.question }}</p>
+    <form [formGroup]="questionLocalService.formGroup">
+      <div [formArrayName]="formName">
+        <ng-container *ngFor="let item of formArray.controls; index as i">
+          <mat-checkbox [formControlName]="i">{{
+            question.options[i].text
+          }}</mat-checkbox>
+          <br />
+        </ng-container>
+      </div>
+    </form>
+  </div>
+
+  <div class="step__content__answer">
+    <div class="answer-correct" [ngClass]="{ active: answer === 0 }">
+      <p>You Answered Correctly</p>
+      <img src="/assets/images/right.jpeg" alt="right-img" />
+    </div>
+    <div class="answer-wrong" [ngClass]="{ active: answer > 0 }">
+      <img src="/assets/images/wrong.png" alt="wrong-img" />
+    </div>
+  </div>
+</div>
+
+<ng-container *ngIf="answer < 0; else navigation">
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="submitForm()"
+    type="button"
+  >
+    submit
+  </button>
+</ng-container>
+<ng-template #navigation>
+  <div class="step__navigation">
+    <button
+      mat-stroked-button
+      matStepperPrevious
+      type="button"
+      *ngIf="formIndex > 0"
+    >
+      Back
+    </button>
+    <button
+      mat-stroked-button
+      matStepperNext
+      type="button"
+      *ngIf="formIndex < 4"
+    >
+      Next
+    </button>
+    <button mat-stroked-button type="button" (click)="goToFinal()"  *ngIf="formIndex === 4">
+      show final score
+    </button>
+  </div>
+</ng-template>

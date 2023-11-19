@@ -1,0 +1,146 @@
+{
+  "users": [
+    {
+      "username": "Mari",
+      "password": "1234",
+      "id": 2
+    },
+    {
+      "username": "ddd",
+      "password": "ddd",
+      "id": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "question": "question",
+      "options": [
+        {
+          "text": "option1",
+          "value": true,
+          "score": 3
+        },
+        {
+          "text": "option2",
+          "value": true,
+          "score": 3
+        },
+        {
+          "text": "option3",
+          "value": false,
+          "score": 0
+        },
+        {
+          "text": "option4",
+          "value": true,
+          "score": 3
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "question2",
+      "options": [
+        {
+          "text": "option1",
+          "value": false,
+          "score": 0
+        },
+        {
+          "text": "option2",
+          "value": true,
+          "score": 3
+        },
+        {
+          "text": "option3",
+          "value": true,
+          "score": 3
+        },
+        {
+          "text": "option4",
+          "value": false,
+          "score": 0
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "question3",
+      "options": [
+        {
+          "text": "option1",
+          "value": false,
+          "score": 0
+        },
+        {
+          "text": "option2",
+          "value": false,
+          "score": 0
+        },
+        {
+          "text": "option3",
+          "value": false,
+          "score": 0
+        },
+        {
+          "text": "option4",
+          "value": true,
+          "score": 10
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "question4",
+      "options": [
+        {
+          "text": "option1",
+          "value": true,
+          "score": 5
+        },
+        {
+          "text": "option2",
+          "value": true,
+          "score": 5
+        },
+        {
+          "text": "option3",
+          "value": true,
+          "score": 5
+        },
+        {
+          "text": "option4",
+          "value": true,
+          "score": 5
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "question5",
+      "options": [
+        {
+          "text": "option1",
+          "value": false,
+          "score": 0
+        },
+        {
+          "text": "option2",
+          "isAnswer": true,
+          "score": 6
+        },
+        {
+          "text": "option3",
+          "isAnswer": true,
+          "score": 6
+        },
+        {
+          "text": "option4",
+          "isAnswer": true,
+          "score": 5
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+<mat-card>
+  <ng-container
+    *ngIf="!questionLocalService.showFinalSection; else finalSection"
+  >
+    <mat-horizontal-stepper [linear]="true" #stepper labelPosition="bottom">
+      <mat-step
+        *ngFor="let item of questions; index as i"
+        [completed]="questionLocalService.formIsValid(i)"
+      >
+        <app-step [id]="i"></app-step>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </ng-container>
+</mat-card>
+<ng-template #finalSection>
+  <div class="final__section">
+    <div class="final__section__text">
+      <h1>your final Score is</h1>
+      <h1>{{ questionLocalService.finalScore }}</h1>
+    </div>
+    <img
+      class="final__section__img"
+      src="/assets/images/final-score.png"
+      alt="final-img"
+    />
+  </div>
+</ng-template>

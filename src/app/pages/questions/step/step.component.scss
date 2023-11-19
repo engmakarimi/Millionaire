@@ -1,0 +1,49 @@
+:host{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    .step{
+        &__content{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 15px 20px;
+            &__question{
+                flex: 1;
+                display: block;
+            }
+            &__answer{
+                flex: 1;
+                position: relative;
+            }
+        }
+    }
+    .answer-correct{
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        &.active{
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+    }
+    .answer-wrong{
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        img{
+            width: 40%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            object-position: center;
+        }
+        &.active{
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+    }
+}

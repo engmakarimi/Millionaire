@@ -1,1 +1,11 @@
-<p>header works!</p>
+<mat-toolbar color="primary">
+  <button mat-icon-button aria-label="menu-icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="spacer"></span>
+  <span>{{ authService.UserName }}</span>
+  <button mat-icon-button (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
