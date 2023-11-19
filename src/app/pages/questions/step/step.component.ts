@@ -1,29 +1,25 @@
-import {
-  ReactiveFormsModule,
-  FormArray,
-  FormControl,
-  AbstractControl,
-} from '@angular/forms';
+import { NgClass, NgFor, NgIf } from '@angular/common';
+import { Component, Input, inject } from '@angular/core';
+import { ReactiveFormsModule, FormArray } from '@angular/forms';
 import { MatStepperModule } from '@angular/material/stepper';
-import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { CommonModule } from '@angular/common';
-import { Component, Input, inject } from '@angular/core';
-import { QuestionLocalService } from '../services';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { QuestionLocalService } from '../services';
+import { Question } from 'src/app/core';
 
 @Component({
   selector: 'app-step',
   standalone: true,
   imports: [
-    CommonModule,
+    NgFor,
+    NgIf,
+    NgClass,
     ReactiveFormsModule,
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatIconModule,
     MatStepperModule,
     MatCheckboxModule,
   ],
@@ -33,7 +29,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 export class StepComponent {
   formName!: string;
   formArray!: FormArray;
-  question!: any;
+  question!: Question;
   answer: number = -1;
   formIndex!: number;
   public questionLocalService = inject(QuestionLocalService);

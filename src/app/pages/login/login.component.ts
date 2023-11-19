@@ -1,5 +1,6 @@
-import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { NgIf } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import {
   FormControl,
   FormGroup,
@@ -12,13 +13,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { AuthService } from 'src/app/core/services';
-import { Router, RouterLink } from '@angular/router';
-import { generateRandomNumber } from 'src/app/core';
+
+import { AuthService } from 'src/app/core';
 @Component({
   standalone: true,
   imports: [
-    CommonModule,
+    NgIf,
     ReactiveFormsModule,
     RouterLink,
     MatInputModule,
@@ -30,7 +30,7 @@ import { generateRandomNumber } from 'src/app/core';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   form!: FormGroup;
   hide = true;
   authService = inject(AuthService);

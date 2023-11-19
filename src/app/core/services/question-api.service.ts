@@ -2,6 +2,7 @@ import { map } from 'rxjs';
 import { Injectable, inject } from '@angular/core';
 import { HttpService } from './http.service';
 import { generateRandomNumber } from '../helpers';
+import { Question } from '../models';
 
 @Injectable({
   providedIn: 'root',
@@ -12,10 +13,8 @@ export class QuestionApiService {
 
   getQuestions() {
     return this.httpService.getList(this.url).pipe(
-      map((list: any[]) => {
+      map((list: Question[]) => {
         const indexList = generateRandomNumber(list.length);
-        console.log(indexList)
-        console.log(indexList.map((p) => list[p]))
         return indexList.map((p) => list[p]);
       })
     );

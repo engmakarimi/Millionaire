@@ -1,21 +1,18 @@
-import {
-  FormArray,
-  FormControl,
-  FormGroup,
-} from '@angular/forms';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Injectable } from '@angular/core';
+import { Question } from 'src/app/core';
 
 @Injectable()
 export class QuestionLocalService {
-  private questions: any = [];
+  private questions: Question[] = [];
   formControlNames = ['firstQ', 'secondQ', 'thirdQ', 'forthQ', 'fifthQ'];
   get Questions() {
     return this.questions;
   }
-  arrayResult: any[] = [0, 0, 0, 0, 0];
+  arrayResult: number[] = [0, 0, 0, 0, 0];
   finalScore = 0;
-  showFinalSection=false;
-  
+  showFinalSection = false;
+
   firstQ = new FormArray<FormControl>([]);
   secondQ = new FormArray<FormControl>([]);
   thirdQ = new FormArray<FormControl>([]);
@@ -30,7 +27,7 @@ export class QuestionLocalService {
     fifthQ: this.fifthQ,
   });
 
-  registerQuestions(list: any[]) {
+  registerQuestions(list: Question[]) {
     this.questions = [...list];
     this.setFirstQ();
     this.setSecondQ();

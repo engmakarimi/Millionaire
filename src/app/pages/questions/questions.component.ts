@@ -1,26 +1,20 @@
 import { MatCardModule } from '@angular/material/card';
-import { ReactiveFormsModule, FormControl } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { CommonModule } from '@angular/common';
+import {  NgFor, NgIf } from '@angular/common';
 import { Component, Input, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { MatStepperModule } from '@angular/material/stepper';
 import { QuestionLocalService } from './services';
 import { StepComponent } from './step/step.component';
+import { Question } from 'src/app/core/models';
 
 @Component({
   standalone: true,
   imports: [
-    CommonModule,
-    ReactiveFormsModule,
+    NgFor,
+    NgIf,
     RouterLink,
-    MatInputModule,
     MatButtonModule,
-    MatFormFieldModule,
-    MatIconModule,
     MatStepperModule,
     MatCardModule,
     StepComponent,
@@ -30,7 +24,7 @@ import { StepComponent } from './step/step.component';
   providers: [QuestionLocalService],
 })
 export class QuestionsComponent {
-  @Input() questions!: any;
+  @Input() questions!: Question[];
   public questionLocalService = inject(QuestionLocalService);
 
   ngOnInit() {

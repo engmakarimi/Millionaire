@@ -3,8 +3,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import {  NgIf } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -18,7 +18,7 @@ import { confirmPasswordValidator } from 'src/app/core';
 @Component({
   standalone: true,
   imports: [
-    CommonModule,
+    NgIf,
     ReactiveFormsModule,
     RouterLink,
     MatInputModule,
@@ -30,7 +30,7 @@ import { confirmPasswordValidator } from 'src/app/core';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
   form!: FormGroup;
   hide = true;
   authService = inject(AuthService);

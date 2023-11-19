@@ -9,13 +9,7 @@ import { AuthService } from '../../services';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterLink,
-    MatButtonModule,
-    MatIconModule,
-    MatToolbarModule,
-  ],
+  imports: [RouterLink, MatButtonModule, MatIconModule, MatToolbarModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })

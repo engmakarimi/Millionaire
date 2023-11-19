@@ -2,7 +2,9 @@
     width: 100%;
     display: block;
     height: 100vh;
-    background-image: url('/assets/images/coins-bg.jpg');
+    background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.849) 0%,
+            rgba(241, 202, 74, 0.637)100%), url('/assets/images/coins-bg.jpg');
     background-size: cover;
     background-position: center;
 

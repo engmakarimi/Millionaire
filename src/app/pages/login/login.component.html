@@ -2,13 +2,13 @@
   <h1 class="login__title">Login</h1>
   <mat-form-field class="login__form__input">
     <mat-label>user name</mat-label>
-    <input matInput formControlName="userName" type="email"/>
+    <input matInput formControlName="userName" type="email" />
     <mat-error *ngIf="form.controls['userName'].getError('required')"
-    >field is required</mat-error
-  >
-  <mat-error *ngIf="form.controls['userName'].getError('email')"
-    >format is wrong</mat-error
-  >
+      >field is required</mat-error
+    >
+    <mat-error *ngIf="form.controls['userName'].getError('email')"
+      >format is wrong</mat-error
+    >
   </mat-form-field>
   <mat-form-field class="login__form__input">
     <mat-label>password</mat-label>
@@ -26,7 +26,7 @@
   </mat-form-field>
   <div class="login__form__links">
     <button type="submit" mat-raised-button [disabled]="!form.valid">
-      Enter
+      Login
     </button>
     <span class="text">Not a member? <a routerLink="/signup">sign up</a></span>
   </div>
