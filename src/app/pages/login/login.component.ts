@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/core/services';
 import { Router, RouterLink } from '@angular/router';
+import { generateRandomNumber } from 'src/app/core';
 @Component({
   standalone: true,
   imports: [

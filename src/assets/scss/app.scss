@@ -1,0 +1,34 @@
+@import 'bootstrap/scss/bootstrap';
+
+// Theme Scss
+@import 'theme/variables';
+@import 'theme/font';
+@import 'theme/typography';
+@import 'theme/utilites';
+@import 'theme/buttons';
+@import 'theme/function';
+
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
+:root {
+    --swiper-theme-color: black;
+
+    ::-webkit-scrollbar {
+        width: $spacer-10;
+        border-radius: 2.19rem;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #F6F6F6;
+        border-radius: 2.19rem;
+
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: $color-primary;
+        width: 5px;
+        border-radius: 2.19rem;
+    }
+}
